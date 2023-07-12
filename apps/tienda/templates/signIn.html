@@ -1,0 +1,54 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+{% block title %}
+  LOGIN
+{% endblock %}
+{% block body %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-3 mb-5">
+
+            <form  method="POST" class="card card-body ">
+                {% csrf_token %}
+           
+                <!-- {{form.as_p}} -->
+                <h1 class="text-center"> INICIO </h1>
+                <div class="mb-3 mt-2">
+                    <label for="username">Usuario: </label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Escribe tu usuario">
+                </div>
+
+                <div class="mb-3 mt-2">
+                    <label for="password1">Contraseña: </label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Escribe tu contraseña">
+                </div>
+
+                <a href="/signup" class="d-flex justify-content-end mt-5">¿Eres nuevo? REGISTRATE</a>
+                
+                <p class="text-danger">{{error}}</p>
+
+
+                <button class="btn btn-primary mb-2 mt-3">
+                    INICIAR
+                </button>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+<div class="container d-flex justify-content-center">
+    <img src="{% static 'img/login/doggy.jpg' %}" alt="" class="" width="700">
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+
+{% endblock %}

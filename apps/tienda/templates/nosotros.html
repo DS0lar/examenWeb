@@ -1,0 +1,84 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style-product.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-carro.css' %}">
+{% endblock %}
+{% block title %}
+  NOSOTROS
+{% endblock %}
+{% block body %}
+<div class="container pt-3 ">
+    <h1 class="">¿Que es LovPet?</h1> 
+    
+  </div>
+ 
+  <div class="container pb-5">
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        
+        <p class="lead fs-3">LovPet es una fundación animal sin fines de lucro, cuenta con diversas sedes a lo largo de Chile, nuestra visión es velar por el bienestar de los animales en situación de calle, disminuir el número de animales callejeros, dándole un hogar temporal y tratamiento adecuado hasta que la persona indicada llegue a por ellos, es por esta misma razón que nosotros ofrecemos diferentes productos de mascotas mediante este medio para lograr cumplir nuestra meta. Además de la venta de artículos recibimos donaciones voluntarias, es por ello que te invitamos a cooperar con nosotros en esta gran causa, ya que ellos se lo merecen.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="{% static 'img/nosotros/port.jpg' %}" width="500" height="500" alt="">
+
+      </div>
+    </div>
+  </div>
+<div class="container pb-3">
+<h1 class="">TU COLABORACIÓN IMPORTA</h1>
+<h6>Con tu ayuda podemos ofrecer diferentes tipos de beneficios a los animales...</h6>
+</div>
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4 d-flex flex-column  align-items-center">
+        
+        <img src="{% static 'img/nosotros/caso1.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140">
+        <h4 class="pt-3 pb-3">MEDICAMENTOS</h4>
+        
+        
+      </div>
+      <div class="col-lg-4 d-flex flex-column  align-items-center">
+        <img src="{% static 'img/nosotros/caso2.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140">
+
+        <h4 class="pt-3">ALIMENTOS</h4>
+        
+        
+      </div>
+      <div class="col-lg-4 d-flex flex-column  align-items-center">
+        <img src="{% static 'img/nosotros/caso3.jpg' %}" class="bd-placeholder-img rounded-circle" width="140" height="140">
+
+        <h4 class="pt-3">CUIDADOS</h4>
+        
+        
+      </div>
+    </div>
+   
+
+
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark d-flex  justify-content-between pb-5" >
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">¿Quieres ayudarnos con un aporte solidario?</h1>
+        <p class="lead my-3">En la actualidad hay una cantidad aproximada de 4 millones de animales que viven en la calle, ayudanos a mejorar esta situción y brindarles el cariño que merecen.</p>
+        <p class="lead mb-0"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="text-white fw-bold">¡PRESIONA AQUI!</a></p>
+      </div>
+      <div class="col-auto d-none d-lg-block">
+          <img src="{% static 'img/inicio/name.jpg' %}" width="350" height="300" >
+  
+        </div>
+  
+      
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/shop.js' %}"></script> 
+<script src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

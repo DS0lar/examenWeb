@@ -1,0 +1,47 @@
+main > .container{
+    padding: 30px 0;
+}
+
+header{
+justify-content: space-between;
+
+}
+#ini{
+    
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#link-pr{
+    text-decoration: none;
+    color: black;
+}
+
+.card-border{
+    border: solid 10px white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border:hover{
+    transform: scale(1.05);
+}
+
+#toggleDark{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+   
+    color: white;
+    margin-left: 40px;
+    margin-top: 4px;
+}
+
+#link-pr{
+    color: blueviolet;
+}
+
+#car-prod:hover{
+    transform: scale(1.05);
+}

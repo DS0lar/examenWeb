@@ -1,0 +1,63 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style-carro.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-product.css' %}">
+{% endblock %}
+{% block title %}
+  PRODUCTOS
+{% endblock %}
+{% block body %}
+<div id="carta">
+    <div class="container-md p-5">
+        <div class="row pb-5">
+            <h3 class="text-start "> PRODUCTOS </h3>
+        </div>
+
+        <div class="row ">
+
+            <div class="col-sm">
+                   <a href="/alimento" class="card w-100 card-border mb-5 text-decoration-none">
+                       <img src="{% static 'img/inicio/gato.png' %}" class="card-img-top" alt="...">
+                       <div class="card-body">
+                         <h5 class="card-title">COMIDA</h5>
+                         <p class="card-text" id="parra"> Miau~ Aquí encontrarás variedades de comida para tus mascotas.</p>
+                       </div>
+                    </a>
+            </div>
+
+            <div class="col-sm">
+
+                <a href="/juguetes" class="card w-100 card-border mb-5 text-decoration-none">
+                    <img src="{% static 'img/inicio/img1.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">JUGUETES</h5>
+                      <p class="card-text">¡Guau!¡Guau! Aquí encontrarás diferentes juguetes para que tus mascotas se diviertan.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm">
+                <a href="/accesorios"class="card w-100 card-border mb-5 text-decoration-none">
+                    <img src="{% static 'img/inicio/bad.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">ACCESORIOS</h5>
+                      <p class="card-text">¡Que miras miau! aquí solo encontraras accesorios como correas, camas y más…</p>
+                    </div>
+                </a>
+            </div>
+
+            
+
+        </div>
+
+        </div>
+{% endblock %}
+
+{% block script %}
+
+<script src="{% static 'js/shop.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+
+{% endblock %}

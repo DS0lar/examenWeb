@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+}
+
+
+/* main{
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+} */
+
+.formulario{
+    display: grid;
+    gap: 20px;
+}
+
+.formularioLabel{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.formularioInp{
+    position: relative;
+
+}
+
+.formularioInput{
+    width: 100%;
+    background: rgba(255, 255, 255, 0.826);
+    
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+}
+
+.formularioInput:focus{
+    border: 3px solid rgb(40, 104, 172);
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+
+.formularioInput-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formularioInput-error-activo{
+    display: block;
+}
+
+.formulario-validacionEstado{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.formularioMensaje{
+    height: 45px;
+    line-height: 45px;
+    background: #F66060
+    ;
+    padding: 0, 15px;
+    border-radius: 3px;
+    display: none;
+}
+
+.formularioMensaje-activo{
+    display: block;
+}
+
+.formularioGrupo-btn-agregar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario-btn{
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    background: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+
+.formulario-btn:hover{
+box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
+}
+
+.formularioMensaje-exito{
+    font-size: 14px;
+    color: #119200;
+    display: none;
+}
+
+.formularioMensaje-exito-activo{
+    display: block;
+}
+
+
+
+.fomularioGrupo-correcto.formulario-validacionEstado{
+    color: #1ed12d;
+    opacity: 1;
+
+}
+
+.fomularioGrupo-incorrecto .formularioLabel{
+    color: #bb2929;
+
+}
+
+.fomularioGrupo-incorrecto .formulario-validacionEstado{
+    color: #bb2929;
+    opacity: 1;
+}
+
+.formularioGrupo-incorrecto .formularioInp{
+    border: 3px solid #bb2929;
+}
+@media screen and (max-width:800px){
+    .formulario-btn{
+        width: 100%;
+    }
+}
+
+.error{
+    color: red;
+    
+}
+
+#toggleDark{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+   
+    color: white;
+    margin-left: 40px;
+    margin-top: 4px;
+}
+
+
+.footer{
+position: absolute;
+}

@@ -1,0 +1,51 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+{% block title %}
+  REGISTER
+{% endblock %}
+{% block body %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-3 mb-5">
+
+            <form  method="POST" class="card card-body ">
+                {% csrf_token %}
+                
+                <!-- {{form.as_p}} -->
+                <h1 class="text-center"> REGISTRO </h1>
+                <div class="mb-3 mt-2">
+                    <label for="username">Usuario: </label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Escribe tu usuario">
+                </div>
+
+                <div class="mb-3 mt-2">
+                    <label for="password1">Contraseña: </label>
+                    <input type="password" name="password1" id="password1" class="form-control" placeholder="Escribe tu contraseña">
+                </div>
+
+                <div class="mb-3 mt-2">
+                    <label for="password2">Confirma tu contraseña: </label>
+                    <input type="password" name="password2" id="password2" class="form-control" placeholder="Escribe tu contraseña">
+                </div>
+
+                <p class="text-danger">{{error}}</p>
+                <button class="btn btn-primary mb-2 mt-5">
+                    REGISTRAR
+                </button>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+<div class="container d-flex justify-content-center">
+    <img src="{% static 'img/login/pie_pagina.jpg' %}" alt="" class="" width="700">
+</div>
+
+{% endblock %}
+{% block script %}
+{% endblock %}

@@ -1,0 +1,8 @@
+Hola profe, integrantes Diego Solar, Alex Cea
+
+Usuario Admin (agregar/editar) => User: admin   pass: admin123
+una vez logueado en el navbar/productos aparece la opcion Agregar solo para el admin y en el navbar/user accede al panel de django
+
+
+Usuario estandar => ir a registrar y crear.
+

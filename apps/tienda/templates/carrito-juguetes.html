@@ -1,0 +1,52 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style-carro.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-product.css' %}">
+<link rel="stylesheet" href="{% static 'css/c.css' %}">
+{% endblock %}
+{% block title %}
+  PRODUCTOS-JUGUETES
+{% endblock %}
+{% block body %}
+
+<div id="ini" class="pb-3">
+    <a href="/productos" class="pt-2 ps-2 fs-5 align-items-center col-sm" id="link-pr">PRODUCTOS ></a> <a href="#" class="fs-5 align-items-center col-sm " id="link-pr">JUGUETES</a></h3>
+  </div>
+ 
+  <!-- <div class="shop-content row row-cols-1 row-cols-sm-2 row-cols-md-3" id="shopContent"></div> -->
+
+  <!-- modal -->
+  <div id="toastContainer" aria-live="polite" aria-atomic="true" style="position: fixed; bottom: 10px; right: 10px; z-index: 1;"></div>
+
+  <div class="container mb-5">
+
+    <div class="row row-cols-1 row-cols-md-3 g-3 ">
+      {% for p in cate_jugue %}
+      <div class="col mb-2">
+        <div class="card h-100" id="car-prod">
+          <img src="{{p.imagen_url.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{p.nombre}}</h5>
+            <p class="card-text">{{p.descripcion}}</p>
+            <p class="card-text">${{ p.precio|intcomma }}</p>
+            {% csrf_token %}
+            <button class="item-button btn btn-primary addToCart" onclick="agregarProducto('{{p.sku}}', '{{p.imagen_url.url}}', '{{p.nombre}}', '{{p.precio}}', 1)">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  
+  </div>
+    
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script> 
+<script src="{% static 'js/shop.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script> 
+<script src="{% static 'js/prueba.js' %}"></script> 
+
+{% endblock %}

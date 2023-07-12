@@ -1,0 +1,146 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style-editar.css' %}">
+{% endblock %}
+{% block title %}
+  EDITAR
+{% endblock %}
+{% block body %}
+<main class="container">
+  <div class="row mb-2">
+
+    <form action="/editarProductoForm" class="formulario col-md-6" id="formulario" name="formulario" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="row">
+        <!-- SKU -->
+        <div class="formularioGrupo col-md-6" id="grupoSku">
+          <label for="sku" class="formularioLabel">SKU</label>
+          <div class="formularioInp">
+            <input readonly value="{{prod.sku}}" type="text" class="formularioInput" name="sku" id="sku" placeholder="Ingrese SKU">
+          </div>
+        </div>
+
+        <!-- NOMBRE -->
+        <div class="formularioGrupo col-md-6" id="grupoNombre">
+          <label for="nombre" class="formularioLabel">Nombre:</label>
+          <div class="formularioInp">
+            <input value="{{prod.nombre}}" type="text" class="formularioInput" name="nombre" id="nombre" placeholder="Ingrese nombre" required minlength="2" maxlength="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- PRECIO -->
+        <div class="formularioGrupo col-md-6" id="grupoPrecio">
+          <label for="precio" class="formularioLabel">Precio:</label>
+          <div class="formularioInp">
+            <input value="{{prod.precio}}" type="number" class="formularioInput" name="precio" id="precio" placeholder="Ingrese precio" required minlength="4">
+          </div>
+        </div>
+
+        <!-- CANTIDAD -->
+        <div class="formularioGrupo col-md-6" id="grupoCantidad">
+          <label for="cantidad" class="formularioLabel">Cantidad:</label>
+          <div class="formularioInp">
+            <input value="{{prod.cantidad}}" type="number" class="formularioInput" name="cantidad" id="cantidad" placeholder="Ingrese cantidad" required maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- TIPO -->
+        <div class="formularioGrupo col-md-6" id="grupoTipo">
+          <label for="tipo" class="formularioLabel">Tipo producto:</label>
+          <select class="form-select border border-black" aria-label="Default select example" name="tipo" id="tipo" required>
+            {% for c in cate %}
+            <option value="{{c.id_categoria}}" {% if c.id_categoria == prod.id_categoria.id_categoria %} selected {% endif %} >{{c.nombre_categoria}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- TIPO Animal -->
+        <div class="formularioGrupo col-md-6" id="grupoTipoA">
+          <label for="tipoA" class="formularioLabel">Tipo producto:</label>
+          <select class="form-select border border-black" aria-label="Default select example" name="tipoA" id="tipoA" required>
+            {% for t in tipoA %}
+            <option value="{{t.id_tipoA}}" {% if t.id_tipoA == prod.id_tipoA.id_tipoA %} selected {% endif %} >{{t.nombre_tipoA}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- PROVEEDOR -->
+      <div class="formularioGrupo col-md-12" id="grupoProveedor">
+        <label for="proveedor" class="formularioLabel">Proveedor:</label>
+        <div class="formularioInp">
+          <input value="{{prod.proveedor}}" type="text" class="formularioInput" name="proveedor" id="proveedor" placeholder="Ingrese proveedor" required maxlength="100">
+          <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+        </div>
+      </div>
+
+      <!-- DESCRIPCION -->
+      <div class="formularioGrupo col-md-12" id="grupoDescripcion">
+        <label for="descripcion" class="formularioLabel">Descripción:</label>
+        <div class="formularioInp">
+          <input value="{{prod.descripcion}}" type="text" class="formularioInput" name="descripcion" id="descripcion" placeholder=" " required>
+          <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="row">
+        <div class="formularioGrupo col-md-9" id="grupoUrl">
+          <label for="url" class="formularioLabel">Imagen:</label>
+          <div class="formularioInp">
+            <input src="{{prod.imagen_url.url}}" type="file" class="formularioInput" name="imagen" id="imagen" placeholder=" Ingrese imagen." required onchange="mostrarImagenPreview(event)">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <p class="formularioInput-error">Ingrese imagen</p>
+          
+        </div>
+  
+        <div class="col-md-3">
+          <img src="{{prod.imagen_url.url}}" height="100" alt="">
+        </div>
+      </div>
+
+      <div class="formularioMensaje" id="formularioMensaje">
+        <p class="m-0"><i class="bi bi-exclamation-diamond-fill"></i> <b>Error: </b> Rellene el formulario para continuar.</p>
+      </div>
+
+      <div class="row">
+        <div class="formularioGrupo formularioGrupo-btn-agregar col-md-12">
+          <button type="submit" class="btn btn-dark col-md-12">EDITAR</button>
+          <p class="formularioMensaje-exito" id="formularioMensaje-exito">Producto editado</p>
+        </div>
+      </div>
+    </form>
+
+    <div class="col-md-6">
+      <div class="card card-body mt-5 mb-4">
+
+        <img id="imagen-preview" src="{{prod.imagen_url.url}}" alt="Vista previa de la imagen" style="display: none;" height="500">
+
+       
+
+      </div>
+      <div>
+        <button id="cancel" type="button" class="btn btn-danger col-md-12 mt-5">CANCELAR</button>
+      </div>
+    </div>
+   
+
+  </div>
+</main>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/editar.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+{% endblock %}

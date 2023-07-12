@@ -1,0 +1,124 @@
+.shop-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    padding: 40px;
+    margin: 20px;
+
+
+    
+    
+}
+
+.price{
+    color:gray;
+    font-size: 22px;
+}
+
+.card{
+    box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.modal-container{
+    width: 80%;
+    margin: 0 10%;
+    max-height: 88vh;
+    color: #ffff;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    top: 12vh;
+    scrollbar-color: none;
+}
+.modal-container ::-webkit-scrollbar{
+    display:
+     none;
+}
+.modal-header{
+    display: flex;
+    justify-content: space-around;
+    background-color: #0a0909;
+    color: #ffff;
+    width: 100%;
+}
+.modal-header-tittle{
+    justify-self: start;
+}
+.modal-header-button{
+    cursor: pointer;
+}
+
+.modal-container > .modal-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 90%;
+    margin: 15px;
+}
+.modal-container > div > img {
+    height: 120px;
+    width: 120px;
+}
+.total-content{
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.btn-eliminar{
+    cursor: pointer;
+}
+.cantidad-carrito{
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 20px;
+    left: 10px;
+    display: none;
+    position: absolute;
+}
+#car{
+    
+    color: white;
+    position: absolute;
+
+}
+#toggleDark{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+   
+    color: white;
+    margin-left: 40px;
+    margin-top: 4px;
+}
+
+.sumar ,.restar{
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.btn-eliminar{
+    margin-bottom: 15px;
+    margin-left: 20px;
+}

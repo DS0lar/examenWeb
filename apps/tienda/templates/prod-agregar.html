@@ -1,0 +1,219 @@
+{% extends "./base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style-agregar.css' %}">
+{% endblock %}
+{% block title %}
+  AGREGAR
+{% endblock %}
+{% block body %}
+
+<div class="container mt-3">
+    <h1>AGREGAR PRODUCTOS</h1>
+    
+</div> 
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+  <main>
+    <form action="/agregarProductoForm" class="formulario" id="formulario" name="formulario"method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+      <div class="row">
+
+          <!-- SKU -->
+        <div class="formularioGrupo col-md-6" id="grupoSku">
+
+          <label for="sku" class="formularioLabel">SKU</label>
+          <div class="formularioInp">
+            <input type="text" class="formularioInput" name="sku" id="sku" placeholder="Ingrese SKU">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <div id="sku-error" class="error" style="display: none;"></div><br><br>
+
+        </div>
+
+        <!-- NOMBRE -->
+        <div class="formularioGrupo col-md-6 " id="grupoNombre">
+
+          <label for="nombre" class="formularioLabel">Nombre:</label>
+          <div class="formularioInp">
+            <input type="text" class="formularioInput" name="nombre" id="nombre" placeholder="Ingrese nombre">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <div id="nombre-error" class="error" style="display: none;"></div><br><br>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- PRECIO -->
+        <div class="formularioGrupo col-md-6" id="grupoPrecio">
+
+          <label for="precio" class="formularioLabel">Precio:</label>
+          <div class="formularioInp">
+            <input type="text" class="formularioInput" name="precio" id="precio" placeholder="Ingrese precio">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <div id="precio-error" class="error" style="display: none;"></div><br><br>
+
+        </div>
+
+        <!-- CANTIDAD -->
+        <div class="formularioGrupo col-md-6" id="grupoCantidad">
+
+          <label for="cantidad" class="formularioLabel">Cantidad:</label>
+          <div class="formularioInp">
+            <input type="text" class="formularioInput" name="cantidad" id="cantidad" placeholder="Ingrese cantidad">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <div id="cantidad-error" class="error" style="display: none;"></div><br><br>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <!-- TIPO -->
+        <div class="formularioGrupo col-md-6" id="grupoTipoA">
+          <label for="tipo" class="formularioLabel">Tipo producto:</label>
+          <select class="form-select border border-black" aria-label="Default select example" name="tipo" id="tipo" required>
+            <option value="0"selected disabled>Seleccione...</option.value>
+            {% for c in cate %}
+            <option value="{{c.id_categoria}}">{{c.nombre_categoria}}</option>
+            {% endfor %}
+          </select>
+          <div id="tipo-error" class="error" style="display: none;"></div><br><br>
+        </div>
+
+         <!-- TIPO ANIMAL -->
+         <div class="formularioGrupo col-md-6" id="grupoTipo">
+          <label for="tipoA" class="formularioLabel">Tipo Animal:</label>
+          <select class="form-select border border-black" aria-label="Default select example" name="tipoA" id="tipoA" required>
+            <option value="0"selected disabled>Seleccione...</option.value>
+            {% for t in tipoA %}
+            <option value="{{t.id_tipoA}}">{{t.nombre_tipoA}}</option>
+            {% endfor %}
+          </select>
+          <div id="tipoA-error" class="error" style="display: none;"></div><br><br>
+        </div>
+
+      
+
+        
+      </div>
+       
+
+         <!-- PROVEEDOR -->
+         <div class="formularioGrupo col-md-12" id="grupoProveedor">
+
+          <label for="proveedor" class="formularioLabel">Proveedor:</label>
+          <div class="formularioInp">
+            <input type="text" class="formularioInput" name="proveedor" id="proveedor" placeholder=" ">
+            <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+          </div>
+          <div id="proveedor-error" class="error" style="display: none;"></div><br><br>
+  
+        </div>
+
+
+      <!-- DESCRIPCION -->
+      <div class="formularioGrupo col-md-12" id="grupoDescripcion">
+
+        <label for="descripcion" class="formularioLabel">Descripción:</label>
+        <div class="formularioInp">
+          <input type="text" class="formularioInput" name="descripcion" id="descripcion" placeholder=" ">
+          <i class="formulario-validacionEstado bi bi-x-circle-fill"></i>
+        </div>
+        <div id="descripcion-error" class="error" style="display: none;"></div><br><br>
+
+      </div>
+
+      <!-- imagen -->
+      <div class="formularioGrupo col-md-12" id="Urls">
+
+        <label for="url" class="formularioLabel">Imagen:</label>
+       
+          <input type="file" class="formularioInput" name="imagen" id="imagen" placeholder=" Seleccione imagen.">
+          <!-- <i class="formulario-validacionEstado bi bi-x-circle-fill"></i> -->
+        </div>
+        <div id="imagen-error" class="error" style="display: none;"></div><br><br>
+
+      </div>
+<!-- accept="image/jpeg" data-validation-allowing="jpg" data-validation-error-msg="Elija una imagen con formato JPG." data-validation="required" -->
+
+   
+        <div id="formularioMensaje" class="error" style="display: none;">REVISE EL CUESTIONARIO</div><br><br>
+
+     
+      <div class="row">
+       <div class="formularioGrupo formularioGrupo-btn-agregar col-md-6">
+          <!-- <button type="submit" class="formulario-btn s" id="agregar">VERIFICAR</button> -->
+         
+          
+        </div> 
+        <div class="formularioGrupo formularioGrupo-btn-agregar col-md-12">
+          <button class="formulario-btn btn btn-primary " type="submit" id="btn-agregar">AGREGAR</button>
+          
+        </div>
+        <!-- <p class="formularioMensaje-exito" id="formularioMensaje-exito"> campos verificados</p> -->
+          
+      </div>
+
+     
+
+       
+    </form>
+  </main>
+
+
+
+  <div class="container mt-5">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sku</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for p in prod %}
+          <tr>
+            <th scope="row">{{p.sku}}</th>
+            <td><img src="{{p.imagen_url.url}}" alt="" height="100"></td>
+            <td>{{p.nombre}}</td>
+            <td>{{p.cantidad}}</td>
+            <td>{{p.precio}}</td>
+            <td>{{p.id_categoria}}</td>
+            <td>{{p.id_tipoA}}</td>
+            <td>{{p.proveedor}}</td>
+            <td>{{p.descripcion}}</td>
+            
+            <td><a href="/editar/{{p.sku}}" class="btn btn-primary">Editar</a></td>
+            <td><a href="/eliminar/{{p.sku}}" class="btn btn-danger">Eliminar</a></td>
+          </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+<!-- <script src="{% static 'js/agregar.js' %}"></script> -->
+<script src="{% static 'js/validacionAgregar.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+{% endblock %}
