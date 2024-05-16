@@ -5,4 +5,5 @@ una vez logueado en el navbar/productos aparece la opcion Agregar solo para el a
 
 
 Usuario estandar => ir a registrar y crear.
+Guarda en BD.
 
